@@ -4,10 +4,16 @@
     <div>
       <p class="StoredMsg"> Your stored messages</p>
     </div>
-    <!-- <button @click="login" type="button">login</button> -->
-    <tr v-for="item in allMessages" :key="item.id">
-      <MessageItem :message = "item"></MessageItem>
-    </tr>
+    <div class="Holding">
+      <div class="Heading">
+        <label> Hint </label>
+        <label> Action </label>
+        <label> Message </label>
+      </div>
+      <div class= "Row" v-for="item in allMessages" :key="item.id">
+        <MessageItem :message = "item"></MessageItem>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -81,9 +87,23 @@ header{
 }
 .StoredMsg{
   font-weight: bold;
-  text-align: left;
-  margin-left:100px
+  text-align: center;
+  width:100%;
+  padding-top: 10px;
 
 }
-
+.Holding{
+  margin:10px;
+}
+.Heading{
+  display: inline-block;
+}
+.Row:nth-child(even) {background-color: #f2f2f2;} 
+tr{
+      width:100%;
+      text-align: center;
+}
+label{
+  margin-left: 108px;
+}
 </style>

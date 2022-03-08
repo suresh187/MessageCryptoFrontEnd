@@ -97,7 +97,7 @@ export default {
     },
     checkLogInComplete(){
       if(!this.logInComplete){
-        // this.$router.push({ path: '/login' })
+        this.$router.push({ path: '/login' })
       }
     }
   }

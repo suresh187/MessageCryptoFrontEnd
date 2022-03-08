@@ -1,8 +1,8 @@
 <template>
 <div class = "MessageItem">
-    <span> {{message.hint}}</span>
-    <button @click="decryptMessage(message.hint, message.studentId)"> decrypt</button>
-    <span> {{decryptedMessage}}</span>
+    <span class="Label"> {{message.hint}}</span>
+    <button class="Button" @click="decryptMessage(message.hint, message.studentId)"> decrypt</button>
+    <span class="Message"> {{decryptedMessage}}</span>
 </div>
 
 </template>
@@ -36,27 +36,39 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 .MessageItem{
-    display: inline-block;
-    padding:20px
+    text-align:center;
+    width: 100%;
 }
-span{
-    padding:10px;
+
+.Label{
+    /* margin-left: 150px; */
     display: inline-block;
-    width: 250px;
+     width: 87px;
+     margin-top: 7px;
+     margin-bottom: 7px;
+     text-align: center;
+     padding-left: 60px;
 }
+
+.Message{
+    padding-left: 120px;
+    display: inline-block;
+     width: 87px;
+     margin-top: 7px;
+     margin-bottom: 7px;
+     text-align: center;
+}
+
+.Button{
+    /* margin-left: 150px; */
+    display: inline-block;  
+    margin-left:100px; 
+     margin-top: 7px;
+     margin-bottom: 7px;
+     text-align: center;
+     background-color: #42b983;
+}
+
 </style>

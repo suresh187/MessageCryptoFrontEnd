@@ -1,5 +1,6 @@
 <template>
     <body>
+      <h4 class ="Header"> User Registeration </h4>
         <div v-if="registerationSuccess" class="alert alert-success AlertBanner" role="alert">
              User registered successfully
         </div>
@@ -144,9 +145,13 @@ export default {
 .RegisterForm{
     margin: 10px;
 }
+.Header{
+  margin-top:20px;
+}
 label{
   font-weight:bold;
   float: left;
+  margin-top: 20px;
 }
 .msg2{
   margin-left: 200px;
