@@ -2,39 +2,43 @@
     <div v-if="loginFailure" class="alert alert-danger AlertBanner" role="alert">
         Login failed
     </div>
-    <div v-if="this.$store.state.loggedIn">
-        <div>
-            <table>
-                <tr>
-                    <th>Label</th>
-                    <th>Value</th>
-                </tr>
-                <tr>
-                    <td>First Name</td>
-                    <td>{{this.firstName}}</td>
-                </tr>
-                <tr>
-                    <td>Last Name</td>
-                    <td>{{this.lastName}}</td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td>{{this.email}}</td>
-                </tr>
-            </table>
+
+    <div>
+        <div v-if="this.$store.state.loggedIn">
+            <div>
+                <table>
+                    <tr>
+                        <th>Label</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td>{{this.firstName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td>{{this.lastName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{this.email}}</td>
+                    </tr>
+                </table>
+            </div>
+            <button  class="SignOut Button" @click="logout"> Sign-out </button>
+        </div >
+        <div v-else-if="this.$store.state.loggedIn == false && registerFirstTime == false">
+            <div class="LoginForm">
+                <label class="Label">Enter your email:</label><br>
+                <input class="UserName" type="text" v-model="email"  placeholder="E-mail"   />
+                <label class="InputError" v-if="emailError  ">Username should not be empty</label><br>
+                <label class="Label">Enter your password:</label><br>
+                <input class="password" type="password" v-model="password" placeholder="Password"/>
+                <label class="InputError" v-if="passwordError">Password should not be empty</label><br>
+            </div>
+            <button class="Button" @click="login"> Sign-in </button>
+            <p class="Register"> Do not have an account yet? <a href="/registerUser" @click="register"> Register here </a> </p>
         </div>
-         <button  class="SignOut Button" @click="logout"> Sign-out </button>
-    </div >
-    <div v-else>
-        <div class="LoginForm">
-            <label class="Label">Enter your email:</label><br>
-            <input class="UserName" type="text" v-model="email"  placeholder="E-mail"   />
-            <label class="InputError" v-if="emailError  ">Username should not be empty</label><br>
-            <label class="Label">Enter your password:</label><br>
-            <input class="password" type="password" v-model="password" placeholder="Password"/>
-            <label class="InputError" v-if="passwordError">Password should not be empty</label><br>
-        </div>
-        <button class="Button" @click="login"> Sign-in </button>
     </div>
 
 
@@ -60,6 +64,7 @@ export default {
         password:'',
         firstName : '',
         lastName:'',
+        registerFirstTime:false,
         emailError:false,
         passwordError:false,
         loginFailure:false,
@@ -113,6 +118,9 @@ export default {
         this.cookies.remove("studentId");
         this.emitter.emit('LogOutstatus', 'finished')
         this.$store.commit('confirmLogout')
+    }, 
+    register(){
+        this.registerFirstTime = true
     }
   }
 }
@@ -179,5 +187,8 @@ td{
 }
 .Button{
       background-color: #42b983;
+}
+.Register{
+    margin:20px
 }
 </style>
