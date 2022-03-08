@@ -1,10 +1,17 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <Header/>
 </template>
+
+<script>
+import Header from './components/Header'
+
+export default {
+  name: 'App',
+  components: {
+    Header
+  }
+}
+</script>
 
 <style>
 #app {
@@ -26,5 +33,9 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.Login{
+    float:right;
+    background-color: #42b983;
 }
 </style>
