@@ -6,9 +6,9 @@
     </div>
     <div class="Holding">
       <div class="Heading">
-        <label> Hint </label>
+        <label class="Hint"> Hint </label>
         <label> Action </label>
-        <label> Message </label>
+        <label class="Message"> Message </label>
       </div>
       <div class= "Row" v-for="item in allMessages" :key="item.id">
         <MessageItem :message = "item"></MessageItem>
@@ -96,14 +96,19 @@ header{
   margin:10px;
 }
 .Heading{
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
 }
 .Row:nth-child(even) {background-color: #f2f2f2;} 
-tr{
-      width:100%;
-      text-align: center;
-}
+
 label{
-  margin-left: 108px;
+    /* display: inline-block; */
+  /* margin-left: 108px; */
+}
+.Hint{
+  margin-left: 16%;
+}
+.Message{
+  margin-right: 14%;
 }
 </style>

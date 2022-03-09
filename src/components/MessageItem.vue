@@ -40,18 +40,31 @@ export default {
 .MessageItem{
     text-align:center;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
-
 .Label{
-    /* margin-left: 150px; */
+  width: 33%;
+}
+.Message{
+  width: 33%;
+}
+.Button{
+  height: 30px;
+   background-color: #42b983;
+}
+/* .Label{
+
     display: inline-block;
      width: 87px;
      margin-top: 7px;
      margin-bottom: 7px;
      text-align: center;
      padding-left: 60px;
-}
-
+} */
+/* 
 .Message{
     padding-left: 120px;
     display: inline-block;
@@ -62,13 +75,13 @@ export default {
 }
 
 .Button{
-    /* margin-left: 150px; */
+
     display: inline-block;  
     margin-left:100px; 
      margin-top: 7px;
      margin-bottom: 7px;
      text-align: center;
      background-color: #42b983;
-}
+} */
 
 </style>
